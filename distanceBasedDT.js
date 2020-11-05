@@ -11,7 +11,7 @@ fired = false;
 UI.AddSubTab(["Config", "SUBTAB_MGR"], "Distance based DT");
 UI.AddCheckbox(["Config", "Distance based DT", "Distance based DT"], "Faster DT");
 UI.AddCheckbox(["Config", "Distance based DT", "Distance based DT"], "Show DT speed");
-UI.AddCheckbox(["Config", "Distance based DT", "Distance based DT"], "Show distance");
+UI.AddCheckbox(["Config", "Distance based DT", "Distance based DT"], "Log distance");
 
 hooks();
 
@@ -38,9 +38,7 @@ function distanceBasedDT()
             maxUsrCmdProcessTicks = 18;
             canshift = 18;
 
-            if(UI.GetValue(["Config", "Distance based DT", "Distance based DT"], "Show distance")) {
-                Cheat.PrintColor([178, 235, 51], distance)
-            }
+            logDistance();
 
             switch(distance)
             {
@@ -64,6 +62,13 @@ function distanceBasedDT()
             }
             fired = true;
         }
+    }
+}
+
+function logDistance()
+{
+    if(UI.GetValue(["Config", "Distance based DT", "Distance based DT"], "Log distance")) {
+        Cheat.PrintColor([178, 235, 51], "Distance to enemy: " + distance + " | local player position: " + localPos);
     }
 }
 
