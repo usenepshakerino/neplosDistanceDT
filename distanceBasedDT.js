@@ -27,13 +27,9 @@ function distanceBasedDT()
 
             ResultX = Math.abs(hitboxPos[0] - localPos[0]);
             ResultY = Math.abs(hitboxPos[1] - localPos[1]);
-            ResultXX = ResultX * ResultX;
-            ResultYY = ResultY * ResultY;
-            ResultXY = ResultXX + ResultYY;
-            ResultC = Math.sqrt(ResultXY);
+            distance = Math.sqrt((RResultX * ResultX) + (ResultY * ResultY));
 
-            distance = ResultC;
-
+            
             clockCorrection = 0;
             maxUsrCmdProcessTicks = 18;
             canshift = 18;
